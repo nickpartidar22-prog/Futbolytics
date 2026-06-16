@@ -1,0 +1,17 @@
+{
+  "name": "WCQF Terminal · Mundial 2026",
+  "short_name": "WCQF",
+  "description": "World Cup Quant Fund — picks cuantitativos y análisis del Mundial FIFA 2026",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0f1b2d",
+  "background_color": "#0f1b2d",
+  "lang": "es",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["sports", "finance"],
+  "screenshots": []
+}

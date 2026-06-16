@@ -1,0 +1,58 @@
+# WCQF Terminal · Mundial 2026
+### Deploy en Netlify + The Odds API (gratis)
+
+---
+
+## PARTE 1 — Obtener API Key de The Odds API (2 min)
+
+1. Ve a **[the-odds-api.com](https://the-odds-api.com)** → **Get API Key**
+2. Pon tu email → confirma el correo → copia tu API Key
+3. Tienes **500 requests/mes gratis** (suficiente para todo el torneo)
+
+---
+
+## PARTE 2 — Deploy en Netlify (opción más simple: drag & drop)
+
+1. Ve a **[app.netlify.com](https://app.netlify.com)** → crea cuenta gratis
+2. Arrastra la carpeta **completa** al recuadro de deploy
+3. Listo — tienes URL `*.netlify.app` en 30 segundos
+
+### Opción alternativa: GitHub + Netlify
+1. Sube esta carpeta a un repo en GitHub
+2. Netlify → **Add new site → Import from GitHub** → selecciona el repo
+3. Build settings: todo vacío → **Deploy**
+
+---
+
+## PARTE 3 — Agregar API Key en Netlify
+
+1. Netlify → tu sitio → **Site Settings → Environment Variables → Add variable**
+2. Agrega:
+
+| Key            | Value                  |
+|----------------|------------------------|
+| `ODDS_API_KEY` | tu-api-key-de-odds-api |
+
+3. Ve a **Deploys → Trigger deploy** para que tome la variable
+
+---
+
+## Estructura del proyecto
+
+```
+wcqf-app/
+├── index.html
+├── netlify.toml            ← Routing /api/odds → función
+├── manifest.json
+├── sw.js
+├── css/app.css
+├── js/
+│   ├── data.js
+│   ├── engine.js
+│   ├── picks.js
+│   ├── odds.js             ← Cliente Odds API (polling 4h)
+│   └── app.js
+└── netlify/
+    └── functions/
+        └── odds.js         ← Proxy The Odds API (Netlify Function)
+```
